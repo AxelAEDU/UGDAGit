@@ -5,8 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Character : MonoBehaviour
 {
-    public PlayerInput input;
+    //public PlayerInput input;
     public Rigidbody rB;
+    public GameObject Caracter1;
+    public GameObject Caracter2;
+    public GameObject Caracter3;
+
     protected float speed;
 
     private PlayerInput playerInput;
@@ -42,6 +46,25 @@ public class Character : MonoBehaviour
     public void Jump(InputAction.CallbackContext context)
     {
         Debug.Log("JUmpong");
+    }
+
+    public void SwitchCharaterTo1()
+    {
+        Caracter1.SetActive(true);
+        Caracter2.SetActive(false);
+        Caracter3.SetActive(false);
+    }
+    public void SwitchCharaterTo2()
+    {
+        Caracter2.SetActive(true);
+        Caracter1.SetActive(false);
+        Caracter3.SetActive(false);
+    }
+    public void SwitchCharaterTo3()
+    {
+        Caracter3.SetActive(true);
+        Caracter2.SetActive(false);
+        Caracter1.SetActive(false);
     }
 
 }

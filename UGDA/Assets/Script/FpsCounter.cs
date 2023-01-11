@@ -7,7 +7,7 @@ public class FpsCounter : MonoBehaviour
 {
 
     [SerializeField] private Text _fpsText;
-    [SerializeField] private float _hudRefreshRate = 1f;
+    [SerializeField] private float _hudRefreshPerSec = 1f;
 
     private float _timer;
 
@@ -21,7 +21,7 @@ public class FpsCounter : MonoBehaviour
         {
             int fps = (int)(1f / Time.unscaledDeltaTime);
             _fpsText.text = "" + fps;
-            _timer = Time.unscaledTime + _hudRefreshRate;
+            _timer = Time.unscaledTime + _hudRefreshPerSec;
         }
     }
 }
