@@ -49,9 +49,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""name"": ""Ability"",
                     ""type"": ""Value"",
                     ""id"": ""fda5cc5b-5d73-4518-b9e2-e546e0be9709"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 }
             ],
@@ -280,6 +280,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    public static object actions { get; internal set; }
+
     public interface IPlayerActions
     {
         void OnMovment(InputAction.CallbackContext context);

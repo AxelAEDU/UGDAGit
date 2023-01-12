@@ -27,9 +27,9 @@
                     "name": "Ability",
                     "type": "Value",
                     "id": "fda5cc5b-5d73-4518-b9e2-e546e0be9709",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": true
                 }
             ],

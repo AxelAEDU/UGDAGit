@@ -5,17 +5,19 @@ using UnityEngine.InputSystem;
 
 public class Character : MonoBehaviour
 {
-    //public PlayerInput input;
-    public Rigidbody rB;
-    public GameObject Caracter1;
-    public GameObject Caracter2;
-    public GameObject Caracter3;
+    protected Rigidbody rB;    
 
-    protected float speed;
+    protected float movmentSpeed;
 
-    private PlayerInput playerInput;
+    protected float jumpHeight;
 
+    protected PlayerInput _playerInput;
 
+    private void Awake()
+    {
+        Physics.gravity = new Vector3(0, -300f, 0);
+        rB = GetComponentInParent<Rigidbody>();
+    }
     private void Start()
     {
 
@@ -23,14 +25,14 @@ public class Character : MonoBehaviour
 
     public void OnEnable()
     {
-        playerInput = new PlayerInput();
-        playerInput.Player.Enable();
+        _playerInput = new PlayerInput();
+        _playerInput.Player.Enable();
 
     }
 
     public void OnDisable()
     {
-        playerInput.Player.Disable();
+        _playerInput.Player.Disable();
     }
 
     private void FixedUpdate()
@@ -39,32 +41,34 @@ public class Character : MonoBehaviour
     }
     void Movment()
     {
-        Vector2 readValue = playerInput.Player.Movment.ReadValue<Vector2>();
-        rB.velocity = (transform.forward * readValue.y).normalized * speed + (transform.right * readValue.x).normalized * speed;
+        Vector2 readValue = _playerInput.Player.Movment.ReadValue<Vector2>();
+        rB.velocity = (transform.forward * readValue.y) * movmentSpeed + (transform.right * readValue.x) * movmentSpeed;
     }
 
-    public void Jump(InputAction.CallbackContext context)
+
+
+    public void OnJump()
     {
-        Debug.Log("JUmpong");
+        //if (context.phase == InputActionPhase.Performed)
+        //{
+        //    Debug.Log("Jumping");
+
+        //    Jump();
+        //}
+    }
+    public bool IsGrounded()
+    {
+        return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
     }
 
-    public void SwitchCharaterTo1()
+
+    public void OnAbility(InputAction.CallbackContext context)
     {
-        Caracter1.SetActive(true);
-        Caracter2.SetActive(false);
-        Caracter3.SetActive(false);
+        if (context.phase == InputActionPhase.Performed)
+        {
+            Debug.Log("Ability");
+        }
     }
-    public void SwitchCharaterTo2()
-    {
-        Caracter2.SetActive(true);
-        Caracter1.SetActive(false);
-        Caracter3.SetActive(false);
-    }
-    public void SwitchCharaterTo3()
-    {
-        Caracter3.SetActive(true);
-        Caracter2.SetActive(false);
-        Caracter1.SetActive(false);
-    }
+
 
 }
