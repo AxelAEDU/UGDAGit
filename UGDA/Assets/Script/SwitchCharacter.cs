@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class SwitchCharacter : MonoBehaviour
 {
-    public GameObject Caracter1;
-    public GameObject Caracter2;
-    public GameObject Caracter3;
+    public GameObject Charater1;
+    public GameObject Charater2;
+    public GameObject Charater3;
     public void SwitchCharaterTo1()
     {
-        Caracter1.SetActive(true);
-        Caracter2.SetActive(false);
-        Caracter3.SetActive(false);
+        //Will switch to Charater 1
+        Charater1.SetActive(true);
+        Charater2.SetActive(false);
+        Charater3.SetActive(false);
     }
     public void SwitchCharaterTo2()
     {
-        Caracter2.SetActive(true);
-        Caracter1.SetActive(false);
-        Caracter3.SetActive(false);
+        //Will switch to Charater 2
+        Charater2.SetActive(true);
+        Charater1.SetActive(false);
+        Charater3.SetActive(false);
     }
     public void SwitchCharaterTo3()
     {
-        Caracter3.SetActive(true);
-        Caracter2.SetActive(false);
-        Caracter1.SetActive(false);
+        //Will switch to Charater 3
+        Charater3.SetActive(true);
+        Charater2.SetActive(false);
+        Charater1.SetActive(false);
     }
 }
