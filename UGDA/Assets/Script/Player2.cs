@@ -7,6 +7,7 @@ public class Player2 : Character
 {
     public float Character2Speed;
     public float Character2Jump;
+    public ParticleSystem P2Particlesystem;
 
     private void Awake()
     {
@@ -15,6 +16,8 @@ public class Player2 : Character
         this.movmentSpeed = this.Character2Speed;
         //Changing the jump height
         this.jumpHeight = this.Character2Jump;
+
+        particlesystem = P2Particlesystem;
     }
     void Start()
     {
@@ -24,6 +27,6 @@ public class Player2 : Character
     void Update()
     {
         Jump();
+        Ability();
     }
-
 }

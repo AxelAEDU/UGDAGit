@@ -3,92 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Character : MonoBehaviour
+public class Character : CharacterInput
 {
     protected Rigidbody rB;
     protected float movmentSpeed;
     protected float jumpHeight;
-    protected PlayerInput _playerInput;
 
 
-    //GoundCheck
-    private Vector3 _boxSize;
-    private float _maxDistance = 2;
-    [SerializeField] private LayerMask _groundCheckLayer;
+    protected ParticleSystem particlesystem;
+
 
     private void Awake()
     {
         Physics.gravity = new Vector3(0, -300f, 0);
         rB = GetComponent<Rigidbody>();
         GetComponentInChildren<Collider>();
-        _boxSize = new Vector3(1, 1, 1);
-    }
-    private void Start()
-    {
+        GetComponentInChildren<ParticleSystem>();
 
-    }
-
-    public void OnEnable()
-    {
-        _playerInput = new PlayerInput();
-        _playerInput.Player.Enable();
-
-    }
-
-    public void OnDisable()
-    {
-        _playerInput.Player.Disable();
     }
 
     private void Update()
     {
-        Jump();
+
     }
     void FixedUpdate()
     {
         Movment();
-
     }
-    void Movment()
+    public override void Movment()
     {
+        base.Movment();
         //Making the Character Move
-        Vector2 readValue = _playerInput.Player.Movment.ReadValue<Vector2>();
         rB.velocity = movmentSpeed * readValue.y * transform.forward + (transform.right * readValue.x) * movmentSpeed;
     }
 
-    public void Jump()
+    public override bool Jump()
     {
+        bool canJump = base.Jump();
         //Make the Character to Jump and will check if it´s grounded
-        if (IsGrounded ())
+        if (canJump)
         {
-            if (_playerInput.Player.Jump.triggered)
-            {
-                rB.AddForce(new Vector2(0, jumpHeight), ForceMode.Impulse);
-            }
-        }
-    }
-
-    public bool IsGrounded()
-    {
-        //Checking for the ground
-        if (Physics.BoxCast(transform.position,_boxSize,-transform.up,transform.rotation, _maxDistance, _groundCheckLayer))
-        {
+            rB.AddForce(new Vector2(0, jumpHeight), ForceMode.Impulse);
             return true;
         }
-        else
-        {
-            return false;
-        }
-
+        return false;
     }
 
 
-    public void OnAbility(InputAction.CallbackContext context)
+
+
+    //public void OnAbility(InputAction.CallbackContext context)
+    //{
+    //    if (context.phase == InputActionPhase.Performed)
+    //    {
+    //        Debug.Log("Ability");
+    //    }
+    //}
+
+    public override bool Ability()
     {
-        if (context.phase == InputActionPhase.Performed)
+        bool useAbility = base.Ability();
+        if (useAbility)
         {
-            Debug.Log("Ability");
+            print("c");
+            particlesystem.Play();
+            return true;
         }
+        return false;
     }
 
 

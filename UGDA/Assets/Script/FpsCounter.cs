@@ -13,7 +13,10 @@ public class FpsCounter : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 60;
+        if (Application.isMobilePlatform)
+        {
+            Application.targetFrameRate = 60;
+        }
     }
     private void Update()
     {

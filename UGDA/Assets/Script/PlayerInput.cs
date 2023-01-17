@@ -280,9 +280,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    public static object actions { get; internal set; }
-
     public interface IPlayerActions
     {
         void OnMovment(InputAction.CallbackContext context);
