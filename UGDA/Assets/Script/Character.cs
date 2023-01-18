@@ -9,9 +9,7 @@ public class Character : CharacterInput
     protected float movmentSpeed;
     protected float jumpHeight;
 
-
     protected ParticleSystem particlesystem;
-
 
     private void Awake()
     {
@@ -19,7 +17,6 @@ public class Character : CharacterInput
         rB = GetComponent<Rigidbody>();
         GetComponentInChildren<Collider>();
         GetComponentInChildren<ParticleSystem>();
-
     }
 
     private void Update()
@@ -40,7 +37,7 @@ public class Character : CharacterInput
     public override bool Jump()
     {
         bool canJump = base.Jump();
-        //Make the Character to Jump and will check if it´s grounded
+        //Make the Character to Jump
         if (canJump)
         {
             rB.AddForce(new Vector2(0, jumpHeight), ForceMode.Impulse);
@@ -49,28 +46,16 @@ public class Character : CharacterInput
         return false;
     }
 
-
-
-
-    //public void OnAbility(InputAction.CallbackContext context)
-    //{
-    //    if (context.phase == InputActionPhase.Performed)
-    //    {
-    //        Debug.Log("Ability");
-    //    }
-    //}
-
     public override bool Ability()
     {
         bool useAbility = base.Ability();
+        //Make the Character to use Ability
         if (useAbility)
         {
-            print("c");
             particlesystem.Play();
             return true;
         }
         return false;
     }
-
 
 }

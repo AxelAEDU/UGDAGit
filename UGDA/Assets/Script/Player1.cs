@@ -8,7 +8,6 @@ public class Player1 : Character
     public float Character1Speed;
     public float Character1Jump;
     public ParticleSystem P1Particlesystem;
-
     private void Awake()
     {
         rB = GetComponentInParent<Rigidbody>();

@@ -7,12 +7,10 @@ public class CharacterInput : MonoBehaviour
     protected PlayerInput _playerInput;
     protected Vector2 readValue;
 
-
     //GoundCheck
     private Vector3 _boxSize;
     private float _maxDistance = 2;
     [SerializeField] private LayerMask _groundCheckLayer;
-
     void Start()
     {
         _boxSize = new Vector3(1, 1, 1);
@@ -31,7 +29,6 @@ public class CharacterInput : MonoBehaviour
 
     public virtual void Movment()
     {
-        //Making the Character Move
         readValue = _playerInput.Player.Movment.ReadValue<Vector2>();
     }
 
@@ -61,7 +58,6 @@ public class CharacterInput : MonoBehaviour
     {
         if (_playerInput.Player.Ability.triggered)
         {
-            print("ci");
             return true;            
         }
 
