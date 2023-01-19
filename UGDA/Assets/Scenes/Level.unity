@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 29914326}
   - component: {fileID: 29914325}
   - component: {fileID: 29914327}
+  - component: {fileID: 29914328}
   m_Layer: 0
   m_Name: Players
   m_TagString: Player
@@ -538,6 +539,18 @@ MonoBehaviour:
   _groundCheckLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &29914328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29914322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58b04688578f69448a15c615a148bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &35060322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4957478770538164, guid: 46e18d94e2668c5479029197e6379a8e, type: 3}
@@ -5477,7 +5490,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 516364612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 29914328}
+        m_TargetAssemblyTypeName: SaveAndLoad, Assembly-CSharp
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &516364612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12937,7 +12962,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1246177629}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 29914328}
+        m_TargetAssemblyTypeName: SaveAndLoad, Assembly-CSharp
+        m_MethodName: LoadCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1246177629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16371,7 +16408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1646800412}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 29914328}
+        m_TargetAssemblyTypeName: SaveAndLoad, Assembly-CSharp
+        m_MethodName: SaveCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1646800412
 MonoBehaviour:
   m_ObjectHideFlags: 0

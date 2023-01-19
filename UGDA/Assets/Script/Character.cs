@@ -57,5 +57,4 @@ public class Character : CharacterInput
         }
         return false;
     }
-
 }

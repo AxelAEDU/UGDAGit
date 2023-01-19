@@ -12,9 +12,9 @@ public class Player1 : Character
     {
         rB = GetComponentInParent<Rigidbody>();
         //Changeing the movment speed
-        this.movmentSpeed = this.Character1Speed;
+        movmentSpeed = Character1Speed;
         //Changing the jump height
-        this.jumpHeight = this.Character1Jump;
+        jumpHeight = Character1Jump;
 
         particlesystem = P1Particlesystem;
     }
