@@ -13,7 +13,7 @@ public class CharacterInput : MonoBehaviour
     [SerializeField] private LayerMask _groundCheckLayer;
     void Start()
     {
-        _boxSize = new Vector3(1, 1, 1);
+        _boxSize = new Vector3(0.8f, 0.8f, 0.8f);
     }
     public void OnEnable()
     {

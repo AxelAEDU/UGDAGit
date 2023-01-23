@@ -27,7 +27,7 @@ public class Gamemanager : MonoBehaviour
 
     public void BackButton()
     {
-        //Will go back to game and all Menus
+        //Will go back to game and all Menus and Unpause the game
         LoadSave.SetActive(false);
         Option.SetActive(false);
         Time.timeScale = 1;
